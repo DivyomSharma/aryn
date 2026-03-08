@@ -77,30 +77,32 @@ export default function ServicesSection() {
     return (
         <section
             ref={containerRef}
-            className="md:h-screen w-full flex items-center bg-[#0a0514] overflow-hidden py-24 md:py-0 relative z-20"
+            className="md:h-screen w-full flex flex-col md:flex-row items-center bg-[#0a0514] overflow-hidden py-24 md:py-0 relative z-20"
             id="services"
         >
             <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
 
-            <div className="w-full pl-6 md:pl-24 relative z-10 flex flex-col md:flex-row md:items-center">
+            {/* Title Block - Absolute on desktop to act as a mask over scrolling cards */}
+            <div className="md:absolute top-0 left-0 bottom-0 md:w-[35vw] lg:w-[30vw] bg-[#0a0514] z-20 flex flex-col justify-center px-6 md:pl-24 md:pr-12 mb-12 md:mb-0 w-full relative">
+                <p className="text-accent uppercase tracking-widest font-semibold text-sm mb-4">
+                    Our Expertise
+                </p>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 relative z-10">
+                    Services
+                </h2>
+                <p className="text-white/60 text-lg max-w-sm relative z-10">
+                    We operate at the intersection of design, technology, and storytelling to build the future.
+                </p>
 
-                {/* Title Block - Fixed width to take up space on left */}
-                <div className="md:w-1/3 shrink-0 mb-12 md:mb-0 pr-8">
-                    <p className="text-accent uppercase tracking-widest font-semibold text-sm mb-4">
-                        Our Expertise
-                    </p>
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
-                        Services
-                    </h2>
-                    <p className="text-white/60 text-lg max-w-sm">
-                        We operate at the intersection of design, technology, and storytelling to build the future.
-                    </p>
-                </div>
+                {/* Subtle right edge gradient for blending on desktop */}
+                <div className="hidden md:block absolute top-0 bottom-0 right-[-100px] w-[100px] bg-gradient-to-r from-[#0a0514] to-transparent pointer-events-none"></div>
+            </div>
 
-                {/* Scroll Wrapper */}
+            {/* Scroll Wrapper */}
+            <div className="w-full relative z-10 flex items-center h-full">
                 <div
                     ref={scrollWrapperRef}
-                    className="flex flex-col md:flex-row gap-6 md:gap-8 w-full md:w-auto pr-6 md:pr-24"
+                    className="flex flex-col md:flex-row gap-6 md:gap-8 w-full md:w-auto px-6 md:pl-[40vw] lg:pl-[35vw] md:pr-24"
                 >
                     {services.map((service, idx) => (
                         <div
@@ -109,7 +111,7 @@ export default function ServicesSection() {
                             data-cursorable
                         >
                             {/* Subtle hover background glow */}
-                            <div className="absolute top-0 right-0 -m-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute top-0 right-0 -m-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                             <div className="relative z-10">
                                 <div className="transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500 origin-bottom-left">
@@ -123,7 +125,6 @@ export default function ServicesSection() {
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );
