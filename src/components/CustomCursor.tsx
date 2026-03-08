@@ -68,12 +68,10 @@ export default function CustomCursor() {
         <>
             {/* Main Cursor (Small Dot) */}
             <motion.div
-                className="pointer-events-none fixed top-0 left-0 z-[110] h-2 w-2 rounded-full bg-white mix-blend-difference hidden md:block"
+                className="pointer-events-none fixed top-0 left-0 z-[110] h-2 w-2 -ml-1 -mt-1 rounded-full bg-white mix-blend-difference hidden md:block"
                 style={{
                     x: cursorX,
                     y: cursorY,
-                    translateX: "-50%",
-                    translateY: "-50%",
                     opacity: isVisible ? (isHovered ? 0 : 1) : 0
                 }}
                 transition={{ duration: 0.15 }}
@@ -81,12 +79,10 @@ export default function CustomCursor() {
 
             {/* Blur Circle Following */}
             <motion.div
-                className="pointer-events-none fixed top-0 left-0 z-[100] h-8 w-8 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm mix-blend-difference hidden md:block"
+                className="pointer-events-none fixed top-0 left-0 z-[100] h-8 w-8 -ml-4 -mt-4 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm mix-blend-difference hidden md:block"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
-                    translateX: "-50%",
-                    translateY: "-50%",
                     opacity: isVisible ? 1 : 0
                 }}
                 animate={{

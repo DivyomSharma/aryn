@@ -20,16 +20,16 @@ export default function ContactSection() {
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
                 <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.8, type: "spring" }}
+                    initial={{ y: 40, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="mb-12"
                 >
-                    <h2 className="text-6xl md:text-8xl lg:text-[8rem] font-bold tracking-tighter mb-6">
-                        Start a <br className="md:hidden" />Project
+                    <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter leading-none mb-6 text-white text-center">
+                        Start a Project
                     </h2>
-                    <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto">
+                    <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto text-center">
                         Ready to build the future? Let&apos;s talk about your next big idea.
                     </p>
                 </motion.div>
